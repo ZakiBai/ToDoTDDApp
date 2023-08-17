@@ -9,6 +9,7 @@ import UIKit
 
 class TaskListViewController: UIViewController {
 
+    @IBOutlet var dataProvider: NSObject!
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {

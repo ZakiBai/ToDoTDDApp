@@ -23,6 +23,7 @@
 		35AB86312A8CE2100028650C /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB86302A8CE2100028650C /* TaskManagerTests.swift */; };
 		35AB86342A8CE3400028650C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB86332A8CE3400028650C /* TaskManager.swift */; };
 		35AB86362A8DECD70028650C /* TaskListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB86352A8DECD60028650C /* TaskListViewControllerTests.swift */; };
+		35AB86382A8E0A430028650C /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB86372A8E0A430028650C /* DataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		35AB86302A8CE2100028650C /* TaskManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTests.swift; sourceTree = "<group>"; };
 		35AB86332A8CE3400028650C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		35AB86352A8DECD60028650C /* TaskListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewControllerTests.swift; sourceTree = "<group>"; };
+		35AB86372A8E0A430028650C /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				35AB85F72A8B9A550028650C /* TaskListViewController.swift */,
+				35AB86372A8E0A430028650C /* DataProvider.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				35AB86342A8CE3400028650C /* TaskManager.swift in Sources */,
 				35AB862A2A8B9D9C0028650C /* Task.swift in Sources */,
 				35AB85F82A8B9A550028650C /* TaskListViewController.swift in Sources */,
+				35AB86382A8E0A430028650C /* DataProvider.swift in Sources */,
 				35AB862C2A8C97910028650C /* Location.swift in Sources */,
 				35AB85F42A8B9A550028650C /* AppDelegate.swift in Sources */,
 				35AB85F62A8B9A550028650C /* SceneDelegate.swift in Sources */,
