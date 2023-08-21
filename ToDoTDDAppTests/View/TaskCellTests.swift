@@ -36,7 +36,23 @@ final class TaskCellTests: XCTestCase {
     func testCellHasTitleLabelInContentView() {
         XCTAssertNotNil(cell.titleLabel.isDescendant(of: cell.contentView))
     }
-
+    
+    func testCellHasLocationLabel() {
+        XCTAssertNotNil(cell.locationLabel)
+    }
+    
+    func testCellHasLocationLabelInContentView() {
+        XCTAssertNotNil(cell.locationLabel.isDescendant(of: cell.contentView))
+    }
+    
+    func testCellHasDateLabel() {
+        XCTAssertNotNil(cell.dateLabel)
+    }
+    
+    func testCellHasDateLabelInContentView() {
+        XCTAssertNotNil(cell.dateLabel.isDescendant(of: cell.contentView))
+    }
+    
 }
 
 extension TaskCellTests {
