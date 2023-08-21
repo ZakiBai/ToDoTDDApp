@@ -99,14 +99,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApK-9m-Ejb">
-                                <rect key="frame" x="175" y="163" width="42" height="21"/>
+                                <rect key="frame" x="175" y="156" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-nd-rdp">
-                                <rect key="frame" x="175" y="215" width="42" height="21"/>
+                                <rect key="frame" x="175" y="204" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -117,6 +117,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M48-Nk-JO0">
+                                <rect key="frame" x="175" y="255" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pxI-Qp-J4l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -124,6 +131,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="JBW-nd-rdp" id="h5I-M4-B3c"/>
                         <outlet property="descriptionLabel" destination="ApK-9m-Ejb" id="SiU-Rt-ufn"/>
+                        <outlet property="locationLabel" destination="M48-Nk-JO0" id="uKX-Aa-6nX"/>
                         <outlet property="mapView" destination="Gfp-iM-1HS" id="qwu-em-8Ls"/>
                         <outlet property="titleLabel" destination="Bpm-xK-9fu" id="uqn-CK-KpC"/>
                     </connections>
