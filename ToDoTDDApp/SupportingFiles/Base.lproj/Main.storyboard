@@ -212,7 +212,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="adressTextField" destination="JMd-Io-QC9" id="IlG-zD-cqI"/>
+                        <outlet property="addressTextField" destination="JMd-Io-QC9" id="bxK-wv-d8g"/>
                         <outlet property="cancelButton" destination="v2T-qB-ReM" id="VZK-B6-N5V"/>
                         <outlet property="dateTextField" destination="JPa-fL-feb" id="U4J-fL-N59"/>
                         <outlet property="descriptionTextField" destination="ncD-6y-pXZ" id="GHK-LQ-aQi"/>
