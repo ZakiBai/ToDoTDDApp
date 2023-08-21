@@ -8,7 +8,7 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
+    @IBOutlet var titleLabel: UILabel!
     func configure(withTask task: Task) {
-        
     }
 }

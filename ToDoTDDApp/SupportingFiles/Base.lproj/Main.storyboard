@@ -26,7 +26,24 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxU-1u-8dd" id="ScH-zQ-Uma">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-oS-SzQ">
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="42" height="21.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lpc-oS-SzQ" firstAttribute="centerY" secondItem="ScH-zQ-Uma" secondAttribute="centerY" id="4EW-DT-1sq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Lpc-oS-SzQ" secondAttribute="bottom" id="5MN-ZQ-feI"/>
+                                                <constraint firstItem="Lpc-oS-SzQ" firstAttribute="top" secondItem="ScH-zQ-Uma" secondAttribute="topMargin" id="lby-H1-TIR"/>
+                                                <constraint firstItem="Lpc-oS-SzQ" firstAttribute="leading" secondItem="ScH-zQ-Uma" secondAttribute="leadingMargin" id="m1H-yo-bQG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Lpc-oS-SzQ" id="F3t-h1-6sn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
