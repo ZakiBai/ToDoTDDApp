@@ -53,7 +53,7 @@ final class DetailViewControllerTests: XCTestCase {
         let coordinate = CLLocationCoordinate2D(latitude: 54.74801923, longitude: 56.01103876)
         let location = Location(name: "Baz", coordinate: coordinate)
         let date = Date(timeIntervalSince1970: 1546388808)
-        let task = Task(title: "Foo", description: "Bar", location: location)
+        let task = Task(title: "Foo", description: "Bar", date: date, location: location)
         
         sut.task = task
         
@@ -74,5 +74,16 @@ final class DetailViewControllerTests: XCTestCase {
     func testSettingTaskSetsLocationLabel() {
         setupTaskAndAppearanceTransition()
         XCTAssertEqual(sut.locationLabel.text, "Baz")
+    }
+    
+    func testSettingTaskSetsDateLabel() {
+        setupTaskAndAppearanceTransition()
+        XCTAssertEqual(sut.dateLabel.text, "02.01.19")
+    }
+    
+    func testSettingTaskSetsMapView() {
+        setupTaskAndAppearanceTransition()
+        XCTAssertEqual(sut.mapView.centerCoordinate.latitude, 54.74801923, accuracy: 0.001)
+        XCTAssertEqual(sut.mapView.centerCoordinate.longitude, 56.01103876, accuracy: 0.001)
     }
 }
