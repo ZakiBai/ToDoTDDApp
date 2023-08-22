@@ -10,29 +10,33 @@ import XCTest
 
 final class APIClientTests: XCTestCase {
 
+    var sut: APIClient!
+    var mockURLSession: MockURLSession!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        mockURLSession = MockURLSession()
+        sut = APIClient()
+        sut.urlSession = mockURLSession
+        
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testLoginUsesCorrectHost() {
-        let mockURLSession = MockURLSession()
-        let sut = APIClient()
-        sut.urlSession = mockURLSession 
-        
+    
+    func userLogin() {
         let completionHandler = {(token: String?, error: Error?) in}
         sut.login(withName: "name", password: "qwerty", completionHandler: completionHandler)
-        
-        guard let url = mockURLSession.url else {
-            XCTFail()
-            return
-        }
-        
-        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        XCTAssertEqual(urlComponents?.host, "todoapp.com")
+    }
+
+    func testLoginUsesCorrectHost() {
+        userLogin()
+        XCTAssertEqual(mockURLSession.urlComponents?.host, "todoapp.com")
+    }
+    
+    func testLoginUsesCorrectPath() {
+        userLogin()
+        XCTAssertEqual(mockURLSession.urlComponents?.path, "/login")
     }
 
 }
@@ -40,6 +44,14 @@ final class APIClientTests: XCTestCase {
 extension APIClientTests {
     class MockURLSession: URLSessionProtocol {
         var url: URL?
+        
+        var urlComponents: URLComponents? {
+            guard let url = url else {
+                return nil
+            }
+            return URLComponents(url: url, resolvingAgainstBaseURL: true)
+        }
+        
         func dataTask(with url: URL, completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
             self.url = url
             return URLSession.shared.dataTask(with: url)
