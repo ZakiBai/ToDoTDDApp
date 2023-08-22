@@ -8,11 +8,13 @@
 import XCTest
 import CoreLocation
 @testable import ToDoTDDApp
+import MapKit
 
 
 final class NewTaskViewControllerTests: XCTestCase {
 
     var sut: NewTaskViewController!
+    var placemark: MockCLPlacemark!
     
     override func setUpWithError() throws {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -64,13 +66,67 @@ final class NewTaskViewControllerTests: XCTestCase {
         sut.descriptionTextField.text = "Baz"
         
         sut.taskManager = TaskManager()
+        let mockGeocoder = MockCLGeocoder()
+        sut.geocoder = mockGeocoder
         sut.save()
         
-        let task = sut.taskManager.task(at: 0)
         let coordinate = CLLocationCoordinate2D(latitude: 43.2585092, longitude: 76.9249928)
         let location = Location(name: "Bar", coordinate: coordinate)
         let generatedTask = Task(title: "Foo", description: "Baz", date: date, location: location)
         
+    
+        
+        placemark = MockCLPlacemark(mockCoordinate: coordinate)
+        mockGeocoder.completionHandler?([placemark], nil)
+        
+        let task = sut.taskManager.task(at: 0)
+        
         XCTAssertEqual(task, generatedTask)
     }
+    
+    func testSaveButtonHasSaveMethod() {
+        let saveButton = sut.saveButton
+        
+        guard let actions = saveButton?.actions(forTarget: sut, forControlEvent: .touchUpInside) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertTrue(actions.contains("save"))
+    }
 }
+
+extension NewTaskViewControllerTests {
+    class MockCLGeocoder: CLGeocoder {
+        
+        var completionHandler: CLGeocodeCompletionHandler?
+        
+        override func geocodeAddressString(_ addressString: String, completionHandler: @escaping CLGeocodeCompletionHandler) {
+            self.completionHandler = completionHandler
+        }
+    }
+    
+    class MockCLPlacemark: CLPlacemark {
+    
+        var mockCoordinate: CLLocationCoordinate2D!
+        
+        init(mockCoordinate: CLLocationCoordinate2D) {
+                let mockLocation = CLLocation(latitude: mockCoordinate.latitude, longitude: mockCoordinate.longitude)
+                
+                super.init(placemark: MKPlacemark(coordinate: mockLocation.coordinate))
+                
+                self.mockCoordinate = mockCoordinate
+            }
+            
+            // Required initializer to satisfy the 'init(coder:)' requirement
+            required init(coder aDecoder: NSCoder) {
+                fatalError("init(coder:) has not been implemented")
+            }
+        
+        override var location: CLLocation? {
+            return CLLocation(latitude: mockCoordinate.latitude, longitude: mockCoordinate.longitude)
+        }
+        
+    }
+}
+
