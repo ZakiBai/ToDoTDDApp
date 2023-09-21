@@ -27,15 +27,19 @@ class NewTaskViewController: UIViewController {
         let date = dateFormatter.date(from: dateTextField.text!)
         let addressString = addressTextField.text
         let descriptionString = descriptionTextField.text
+        
         geocoder.geocodeAddressString(addressString!) { [unowned self] placemarks, error in
             let placemark = placemarks?.first
             let coordinate = placemark?.location?.coordinate
             let location = Location(name: locationString!, coordinate: coordinate)
             let task = Task(title: titleString!, description: descriptionString, date: date, location: location )
-            
             self.taskManager.add(task: task)
+            
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
-        dismiss(animated: true, completion: nil)
+       
     }
     
     var dateFormatter: DateFormatter {
